@@ -1,3 +1,7 @@
+# Ali Nosseir
+# CS30
+# Feb 23, 2020
+# RPG Game handler for keypresses that doesn't require enter to be pressed
 # Code from Arden Sinclair
 # used with permission
 # https://github.com/ArdenSinclair/RPGGame
