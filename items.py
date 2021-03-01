@@ -1,10 +1,12 @@
 # Ali Nosseir
 # CS30
-# Feb 23, 2020
+# Feb 15, 2020
 # RPG Game items that can be picked up by the player
 
 
 class Item:
+    """Represnts an item to be picked up"""
+
     def __init__(self, name):
         """Create an instance of an Item.
 
@@ -23,6 +25,8 @@ class Item:
 
 
 class Heal(Item):
+    """Represents an item to be picked up that can provide healing"""
+
     def __init__(self, name, healing):
         """Create an instance of a Heal Item.
 

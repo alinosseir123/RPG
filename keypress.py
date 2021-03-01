@@ -1,6 +1,6 @@
 # Ali Nosseir
 # CS30
-# Feb 23, 2020
+# Feb 15, 2020
 # RPG Game handler for keypresses that doesn't require enter to be pressed
 # Code from Arden Sinclair
 # used with permission
@@ -31,7 +31,7 @@ class _GetKeyPressWindows:
 
     def __call__(self):
         ch = self.getch()
-        if ch == b"\x00":
+        if ch in [b"\x00", b"\xe0"]:
             ch = self.getch()
             if ch == b"H":
                 return "w"
@@ -100,9 +100,12 @@ get_keypress = GetKeyPress()
 
 
 def keypress(message, filter=None):
-    print(message, end="", flush=True)
+    print(message, flush=True)
     while True:
         key = get_keypress()
+        if key == "q":
+            exit()
+
         if filter and key not in filter:
             continue
         return key

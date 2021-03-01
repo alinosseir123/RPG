@@ -1,6 +1,6 @@
 # Ali Nosseir
 # CS30
-# Feb 23, 2020
+# Feb 15, 2020
 # RPG Game addition utility functions
 
 from os import system

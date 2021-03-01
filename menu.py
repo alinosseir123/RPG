@@ -1,6 +1,6 @@
 # Ali Nosseir
 # CS30
-# Feb 23, 2020
+# Feb 15, 2020
 # RPG Game menus for player interaction
 
 from itertools import zip_longest
@@ -9,7 +9,7 @@ from keypress import keypress
 from util import clear
 
 
-def columnify(*args, sep=" | "):
+def columnify(*args, sep=" │ "):
     """Separate strings into columns.
 
     Args:
@@ -62,13 +62,13 @@ def choose(message, options, caps=False):
         for i, option in enumerate(fmt_options):
             # Display a border around the currently seleced option
             if i == selected:
-                info += "-" * (length + 4) + "\n"
-                info += f"| {option.ljust(length)} |\n"
-                info += "-" * (length + 4) + "\n"
+                info += (
+                    f"╔═{'═' * length        }═╗\n"
+                    f"║ {option.ljust(length)} ║\n"
+                    f"╚═{'═' * length        }═╝\n"
+                )
             else:
-                info += "\n"
-                info += f"  {option}\n"
-                info += "\n"
+                info += f"\n  {option}  \n\n"
 
         # Display the message beside the options
         print("\n".join(columnify(message, info)))
@@ -96,9 +96,10 @@ direction = {
 
 def move():
     """Wait for a directional key to be pressed
+    and return the coordinate offset of the movement
 
     Returns:
-        str: Directional key pressed. One of W, A, S, D.
+        Tuple[int, int]: x, y offsets of the movement
     """
     key = keypress("", ["w", "a", "s", "d"])
     return direction[key]
